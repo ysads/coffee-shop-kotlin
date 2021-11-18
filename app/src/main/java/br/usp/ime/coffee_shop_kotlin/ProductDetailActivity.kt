@@ -16,6 +16,7 @@ class ProductDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loadDataToView()
+        setupWeatherListener()
     }
 
     private fun loadDataToView() {
@@ -23,5 +24,13 @@ class ProductDetailActivity : AppCompatActivity() {
         binding.productDetailName.text = product.name
         binding.productDetailDescription.text = product.description
         binding.productDetailPrice.text = product.price
+    }
+
+    private fun setupWeatherListener() {
+        binding.productDetailsSeeWeather.setOnClickListener {
+            val intent = Intent(this, WeatherDetailsActivity::class.java)
+            intent.putExtra("region", product.region)
+            startActivity(intent)
+        }
     }
 }
