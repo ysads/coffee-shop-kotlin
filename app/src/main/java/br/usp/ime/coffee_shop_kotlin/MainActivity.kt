@@ -49,23 +49,23 @@ class MainActivity : AppCompatActivity() {
         val productsArrayList = ArrayList<Product>()
 
         for (i in name.indices) {
-            val product = Product(imageId[i], name[i], description[i], price[i])
+            val product = Product(
+                imageId = imageId[i],
+                name = name[i],
+                description = description[i],
+                price = price[i],
+                region = "Extrema",
+                lat = "-22.845279715908166",
+                lon = "-46.26128202417066"
+            )
             productsArrayList.add(product)
         }
 
         binding.listview.isClickable = true
         binding.listview.adapter = Adapter(this, productsArrayList)
         binding.listview.setOnItemClickListener { _, _, position, _ ->
-            val productImageId = imageId[position]
-            val productName = name[position]
-            val productDescription = description[position]
-            val productPrice = price[position]
-
             val intent = Intent(this, ProductDetailActivity::class.java)
-            intent.putExtra("imageId", productImageId)
-            intent.putExtra("name", productName)
-            intent.putExtra("description", productDescription)
-            intent.putExtra("price", productPrice)
+            intent.putExtra("product", productsArrayList[position])
             startActivity(intent)
         }
     }

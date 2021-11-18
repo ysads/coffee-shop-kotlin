@@ -9,4 +9,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="product_details_see_weather">See weather</string>
+    <string name="product_details_image_alt">Coffee package image</string>
 </resources>
