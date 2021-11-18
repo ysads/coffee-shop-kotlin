@@ -3,6 +3,7 @@ package br.usp.ime.coffee_shop_kotlin
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import br.usp.ime.coffee_shop_kotlin.adapters.ProductListAdapter
 import br.usp.ime.coffee_shop_kotlin.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -62,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.listview.isClickable = true
-        binding.listview.adapter = Adapter(this, productsArrayList)
+        binding.listview.adapter = ProductListAdapter(this, productsArrayList)
         binding.listview.setOnItemClickListener { _, _, position, _ ->
             val intent = Intent(this, ProductDetailActivity::class.java)
             intent.putExtra("product", productsArrayList[position])

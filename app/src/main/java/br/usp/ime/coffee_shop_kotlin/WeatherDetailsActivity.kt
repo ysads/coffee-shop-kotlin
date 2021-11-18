@@ -12,20 +12,11 @@ class WeatherDetailsActivity : AppCompatActivity() {
         binding = ActivityWeatherDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val region = intent.getStringExtra("region")
-//        val lat = intent.getStringExtra("lat")
-//        val lon = intent.getStringExtra("lon")
+        loadDataToView()
+    }
 
+    private fun loadDataToView() {
+        val region = intent.getStringExtra("region")
         binding.weatherDetailsTitle.text = region
-//
-//        val imageId = intent.getIntExtra("imageId", R.drawable.img01)
-//        val name = intent.getStringExtra("name")
-//        val description = intent.getStringExtra("description")
-//        val price = intent.getStringExtra("price")
-//
-//        binding.productDetailImage.setImageResource(imageId)
-//        binding.productDetailName.text = name
-//        binding.productDetailDescription.text = description
-//        binding.productDetailPrice.text = price
     }
 }
