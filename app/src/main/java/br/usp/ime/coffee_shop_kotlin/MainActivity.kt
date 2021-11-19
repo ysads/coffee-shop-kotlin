@@ -3,8 +3,12 @@ package br.usp.ime.coffee_shop_kotlin
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.ImageView
+import android.widget.TextView
 import br.usp.ime.coffee_shop_kotlin.adapters.ProductListAdapter
 import br.usp.ime.coffee_shop_kotlin.databinding.ActivityMainBinding
+import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +18,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val firstName: TextView = binding.firstName
+        firstName.text = intent.getStringExtra("firstName")
+
+        val lastName: TextView = binding.lastName
+        lastName.text = intent.getStringExtra("lastName")
+
+        val email: TextView = binding.email
+        email.text = intent.getStringExtra("email")
+
+        val pic: ImageView = binding.pic
+        val picURL = intent.getStringExtra("picURL")
+        Picasso.get()
+            .load(picURL)
+            .into(pic)
+
+        Log.i("First Name", firstName.toString())
+        Log.i("Last Name", lastName.toString())
+        Log.i("Email", email.toString())
+        Log.i("Pic URL", picURL.toString())
 
         val imageId = intArrayOf(
             R.drawable.img01, R.drawable.img02, R.drawable.img03,

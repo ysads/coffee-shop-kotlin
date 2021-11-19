@@ -56,23 +56,22 @@ class SignInActivity : AppCompatActivity() {
                 ApiException::class.java
             )
             // Signed in successfully
-            val googleId = account?.id ?: ""
-            Log.i("Google ID", googleId)
+
+            // val googleId = account?.id ?: ""
 
             val googleFirstName = account?.givenName ?: ""
-            Log.i("Google First Name", googleFirstName)
-
             val googleLastName = account?.familyName ?: ""
-            Log.i("Google Last Name", googleLastName)
-
             val googleEmail = account?.email ?: ""
-            Log.i("Google Email", googleEmail)
-
             val googleProfilePicURL = account?.photoUrl.toString()
-            Log.i("Google Profile Pic URL", googleProfilePicURL)
 
-            val googleIdToken = account?.idToken ?: ""
-            Log.i("Google ID Token", googleIdToken)
+            // val googleIdToken = account?.idToken ?: ""
+
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("firstName", googleFirstName)
+            intent.putExtra("lastName", googleLastName)
+            intent.putExtra("email", googleEmail)
+            intent.putExtra("picURL", googleProfilePicURL)
+            startActivity(intent)
 
         } catch (e: ApiException) {
             // Sign in was unsuccessful
