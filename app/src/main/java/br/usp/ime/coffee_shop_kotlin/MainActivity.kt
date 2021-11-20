@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         binding.listview.isClickable = true
         binding.listview.adapter = ProductListAdapter(this, productsArrayList)
         binding.listview.setOnItemClickListener { _, _, position, _ ->
-            val intent = Intent(this, ProductDetailActivity::class.java)
+            val intent = Intent(this, ProductDetailsActivity::class.java)
             intent.putExtra("product", productsArrayList[position])
             startActivity(intent)
         }

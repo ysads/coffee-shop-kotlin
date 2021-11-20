@@ -55,16 +55,11 @@ class SignInActivity : AppCompatActivity() {
             val account = completedTask.getResult(
                 ApiException::class.java
             )
-            // Signed in successfully
-
-            // val googleId = account?.id ?: ""
 
             val googleFirstName = account?.givenName ?: ""
             val googleLastName = account?.familyName ?: ""
             val googleEmail = account?.email ?: ""
             val googleProfilePicURL = account?.photoUrl.toString()
-
-            // val googleIdToken = account?.idToken ?: ""
 
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("firstName", googleFirstName)
@@ -74,10 +69,7 @@ class SignInActivity : AppCompatActivity() {
             startActivity(intent)
 
         } catch (e: ApiException) {
-            // Sign in was unsuccessful
-            Log.e(
-                "failed code=", e.statusCode.toString()
-            )
+            Log.e("Failure code:", e.statusCode.toString())
         }
     }
 }

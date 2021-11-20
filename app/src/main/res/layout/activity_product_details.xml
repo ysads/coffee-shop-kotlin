@@ -6,29 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".ProductDetailActivity">
+    tools:context=".ProductDetailsActivity">
 
     <ImageView
-        android:id="@+id/productDetailImage"
+        android:id="@+id/productDetailsImage"
         android:layout_width="400dp"
         android:layout_height="200dp"
         android:layout_marginStart="20dp"
         android:contentDescription="@string/product_details_image_alt" />
 
     <TextView
-        android:id="@+id/productDetailName"
+        android:id="@+id/productDetailsName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp" />
 
     <TextView
-        android:id="@+id/productDetailDescription"
+        android:id="@+id/productDetailsDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp" />
 
     <TextView
-        android:id="@+id/productDetailPrice"
+        android:id="@+id/productDetailsPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp" />
@@ -38,6 +38,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/product_details_see_weather"
+        android:background="@color/design_default_color_on_primary"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/productDetailsSeeMyLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/product_details_see_my_location"
         android:background="@color/design_default_color_on_primary"
         android:layout_marginTop="20dp" />
 

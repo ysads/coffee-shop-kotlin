@@ -11,5 +11,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="product_details_see_weather">See weather</string>
+    <string name="product_details_see_my_location">See my location</string>
     <string name="product_details_image_alt">Coffee package image</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

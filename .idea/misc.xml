@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.24909420289855072" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_product_detail.xml" value="0.19739583333333333" />
+        <entry key="app/src/main/res/layout/activity_product_details.xml" value="0.30027173913043476" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_weather_details.xml" value="0.25679347826086957" />
         <entry key="app/src/main/res/layout/content_product_detail.xml" value="0.19739583333333333" />
