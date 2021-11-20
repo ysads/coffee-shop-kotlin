@@ -30,7 +30,11 @@ class ProductDetailsActivity : AppCompatActivity() {
     private fun setupWeatherListener() {
         binding.productDetailsSeeWeather.setOnClickListener {
             val intent = Intent(this, WeatherDetailsActivity::class.java)
+
             intent.putExtra("region", product.region)
+            intent.putExtra("lat", product.lat)
+            intent.putExtra("lon", product.lon)
+
             startActivity(intent)
         }
     }

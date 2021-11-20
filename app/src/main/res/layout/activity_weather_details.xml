@@ -35,16 +35,33 @@
             android:layout_height="64dp"
             android:src="@drawable/img01" />
 
-        <TextView
-            android:id="@+id/temperature"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:text="-37 ºC"
-            android:textAlignment="textEnd"
-            android:textColor="@color/black"
-            android:textSize="36sp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/weatherDetailsTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:text="-37 ºC"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/weatherDetailsFeelsLike"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:text="-32 ºC"
+                android:textAlignment="textEnd"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textSize="24sp"
+                android:textStyle=""
+                android:lineHeight="36sp" />
+        </LinearLayout>
     </com.google.android.flexbox.FlexboxLayout>
 
     <TextView
