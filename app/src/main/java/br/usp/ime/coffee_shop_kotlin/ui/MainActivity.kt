@@ -1,4 +1,4 @@
-package br.usp.ime.coffee_shop_kotlin
+package br.usp.ime.coffee_shop_kotlin.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
+import br.usp.ime.coffee_shop_kotlin.R
 import br.usp.ime.coffee_shop_kotlin.adapters.ProductListAdapter
 import br.usp.ime.coffee_shop_kotlin.databinding.ActivityMainBinding
+import br.usp.ime.coffee_shop_kotlin.domain.Product
 import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity() {

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import br.usp.ime.coffee_shop_kotlin.Product
+import br.usp.ime.coffee_shop_kotlin.domain.Product
 import br.usp.ime.coffee_shop_kotlin.R
 
 class ProductListAdapter(private val context: Activity, private val arrayList: ArrayList<Product>) :

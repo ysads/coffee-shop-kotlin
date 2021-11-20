@@ -1,4 +1,4 @@
-package br.usp.ime.coffee_shop_kotlin
+package br.usp.ime.coffee_shop_kotlin.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -1,9 +1,10 @@
-package br.usp.ime.coffee_shop_kotlin
+package br.usp.ime.coffee_shop_kotlin.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.usp.ime.coffee_shop_kotlin.databinding.ActivityProductDetailsBinding
+import br.usp.ime.coffee_shop_kotlin.domain.Product
 
 class ProductDetailsActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package br.usp.ime.coffee_shop_kotlin
+package br.usp.ime.coffee_shop_kotlin.ui
 
 import android.content.pm.PackageManager
 import android.location.Geocoder
@@ -6,6 +6,7 @@ import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
+import br.usp.ime.coffee_shop_kotlin.R
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap

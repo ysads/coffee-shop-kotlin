@@ -1,4 +1,4 @@
-package br.usp.ime.coffee_shop_kotlin
+package br.usp.ime.coffee_shop_kotlin.domain
 
 import java.io.Serializable
 
