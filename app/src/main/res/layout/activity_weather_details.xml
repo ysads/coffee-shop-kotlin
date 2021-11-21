@@ -37,7 +37,7 @@
     <LinearLayout
         android:id="@+id/weatherWrapper"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:orientation="vertical"
         android:visibility="visible">
@@ -116,7 +116,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@color/white"
             android:orientation="vertical"
             android:padding="20dp">
@@ -127,6 +127,15 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/weather_details_prev_records"
                 android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/noRecords"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:text="@string/weather_details_no_records"
+                android:textSize="16sp"
+                android:visibility="gone" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/pastWeatherList"

@@ -55,8 +55,12 @@ class WeatherDetailsActivity : AppCompatActivity() {
     private fun loadDataFromDatabase() {
         val allWeather = weatherDB.getAll()
 
-        binding.pastWeatherList.layoutManager = LinearLayoutManager(this)
-        binding.pastWeatherList.adapter = WeatherListAdapter(this, allWeather)
+        if (allWeather.size > 0) {
+            binding.pastWeatherList.layoutManager = LinearLayoutManager(this)
+            binding.pastWeatherList.adapter = WeatherListAdapter(this, allWeather)
+        } else {
+            binding.noRecords.visibility = View.VISIBLE
+        }
     }
 
     private fun loadStaticData() {
