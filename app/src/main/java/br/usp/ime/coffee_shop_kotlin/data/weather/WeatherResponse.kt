@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 class WeatherResponse {
     @SerializedName("current")
-    var current: Current? = null
+    var current: Current = Current()
 }
 
 class Current {

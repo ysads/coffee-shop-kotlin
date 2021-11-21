@@ -4,77 +4,136 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/darkGreen"
     android:orientation="vertical"
-    android:padding="20dp"
     tools:context=".ui.WeatherDetailsActivity">
 
-    <TextView
-        android:id="@+id/weatherDetailsTitle"
+    <LinearLayout
+        android:id="@+id/loadingWrapper"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Region"
-        android:textSize="30sp" />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Current weather"
-        android:textSize="24sp" />
-
-    <com.google.android.flexbox.FlexboxLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        flex:alignItems="center"
-        flex:justifyContent="space_between">
-
-        <ImageView
-            android:id="@+id/icon"
+        <ProgressBar
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:src="@drawable/img01" />
+            android:indeterminateTint="@color/green"
+            android:layout_gravity="center" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/loadingText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="@string/weather_details_loading"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/weatherWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="40dp"
+            flex:alignItems="center"
+            flex:flexDirection="column">
 
             <TextView
-                android:id="@+id/weatherDetailsTemp"
+                android:id="@+id/region"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:text="-37 ºC"
+                android:text="Amazonas"
                 android:textAlignment="textEnd"
-                android:textColor="@color/black"
-                android:textSize="36sp"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/condition"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:text="Sunny"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/weatherDetailsFeelsLike"
+                android:id="@+id/temperature"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:text="-32 ºC"
+                android:text="-37º"
                 android:textAlignment="textEnd"
-                android:textColor="@color/design_default_color_primary_dark"
-                android:textSize="24sp"
-                android:textStyle=""
-                android:lineHeight="36sp" />
+                android:textColor="@color/white"
+                android:textSize="54sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/weather_details_feels_like"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/feelsLike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:text="-32º"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic__01" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Past records"
+                android:textSize="24sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                tools:listitem="@layout/list_weather" />
         </LinearLayout>
-    </com.google.android.flexbox.FlexboxLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Past records"
-        android:textSize="24sp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        tools:listitem="@layout/list_weather" />
-
+    </LinearLayout>
 </LinearLayout>

@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface WeatherService {
-    @GET("/data/2.5/onecall?units=metric&")
+    @GET("/data/2.5/onecall?units=metric&lang=pt_br&")
     fun getCurrentWeather(
         @Query("lat") lat: String,
         @Query("lon") lon: String,
