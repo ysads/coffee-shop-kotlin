@@ -9,6 +9,7 @@ import android.os.Build
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import br.usp.ime.coffee_shop_kotlin.ui.MainActivity
+import br.usp.ime.coffee_shop_kotlin.ui.SignInActivity
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
@@ -27,7 +28,7 @@ class FirebaseAdapter : FirebaseMessagingService() {
 
 
     fun generateNotification(title: String, message: String) {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, SignInActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
 
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
