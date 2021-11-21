@@ -27,9 +27,6 @@ class MainActivity : AppCompatActivity() {
         val lastName: TextView = binding.lastName
         lastName.text = intent.getStringExtra("lastName")
 
-        val email: TextView = binding.email
-        email.text = intent.getStringExtra("email")
-
         val pic: ImageView = binding.pic
         val picURL = intent.getStringExtra("picURL")
         Picasso.get()
@@ -38,7 +35,6 @@ class MainActivity : AppCompatActivity() {
 
         Log.i("First Name", firstName.toString())
         Log.i("Last Name", lastName.toString())
-        Log.i("Email", email.toString())
         Log.i("Pic URL", picURL.toString())
 
         val imageId = intArrayOf(
