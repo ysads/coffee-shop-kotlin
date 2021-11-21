@@ -20,7 +20,7 @@ val COL_ICON = "icon"
 
 class WeatherDatabase(var context: Context) : SQLiteOpenHelper(
     context, DATABASENAME, null,
-    1
+    2
 ) {
     override fun onCreate(db: SQLiteDatabase?) {
         val createTable =
@@ -29,16 +29,19 @@ class WeatherDatabase(var context: Context) : SQLiteOpenHelper(
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        //onCreate(db);
+        val deleteTable = "DROP TABLE $TABLENAME"
+        db?.execSQL(deleteTable)
+        onCreate(db);
     }
 
     fun insert(weather: Weather) {
         val database = this.writableDatabase
         val contentValues = ContentValues()
 
+        contentValues.put(COL_ICON, weather.icon)
         contentValues.put(COL_REGION, weather.region)
-        contentValues.put(COL_TIMESTAMP, weather.timestamp)
         contentValues.put(COL_TEMPERATURE, weather.temperature)
+        contentValues.put(COL_TIMESTAMP, weather.timestamp)
 
         val result = database.insert(TABLENAME, null, contentValues)
         if (result == (0).toLong()) {
@@ -63,12 +66,12 @@ class WeatherDatabase(var context: Context) : SQLiteOpenHelper(
     }
 
     @SuppressLint("Range")
-    private fun getNext(result: Cursor):Weather {
+    private fun getNext(result: Cursor): Weather {
         return Weather(
-            timestamp = result.getString(result.getColumnIndex(COL_TIMESTAMP)).toInt(),
-            temperature = result.getString(result.getColumnIndex(COL_TEMPERATURE)).toFloat(),
+            icon = result.getString(result.getColumnIndex(COL_ICON)),
             region = result.getString(result.getColumnIndex(COL_REGION)),
-            icon = result.getString(result.getColumnIndex(COL_ICON))
+            temperature = result.getString(result.getColumnIndex(COL_TEMPERATURE)).toFloat(),
+            timestamp = result.getString(result.getColumnIndex(COL_TIMESTAMP)).toInt(),
         )
     }
 }

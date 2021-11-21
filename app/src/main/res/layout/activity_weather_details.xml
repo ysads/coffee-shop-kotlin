@@ -48,7 +48,7 @@
             android:orientation="vertical"
             android:paddingHorizontal="20dp"
             android:paddingTop="40dp"
-            android:paddingBottom="40dp"
+            android:paddingBottom="30dp"
             flex:alignItems="center"
             flex:flexDirection="column">
 
@@ -122,20 +122,14 @@
             android:padding="20dp">
 
             <TextView
-                android:id="@+id/randMsg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Past records"
+                android:text="@string/weather_details_prev_records"
                 android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/load"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Carregar" />
-
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/pastWeatherList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

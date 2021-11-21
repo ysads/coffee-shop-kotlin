@@ -2,10 +2,13 @@ package br.usp.ime.coffee_shop_kotlin.ui
 
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.recyclerview.widget.LinearLayoutManager
 import br.usp.ime.coffee_shop_kotlin.R
+import br.usp.ime.coffee_shop_kotlin.adapters.WeatherListAdapter
 import br.usp.ime.coffee_shop_kotlin.data.weather.WeatherDTO
 import br.usp.ime.coffee_shop_kotlin.data.weather.WeatherResponse
 import br.usp.ime.coffee_shop_kotlin.data.weather.WeatherService
@@ -18,10 +21,12 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.Exception
 
 class WeatherDetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWeatherDetailsBinding
     private lateinit var weatherDB : WeatherDatabase
+    private lateinit var adapter : WeatherListAdapter
 
     private val region by lazy { intent.getStringExtra("region") }
     private val lat by lazy { intent.getStringExtra("lat") ?: "0" }
@@ -38,16 +43,20 @@ class WeatherDetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initDatabase()
+        loadDataFromDatabase()
         loadStaticData()
         fetchDataFromApi()
     }
 
     private fun initDatabase() {
         weatherDB = WeatherDatabase(this)
-        binding.load.setOnClickListener {
-            val all = weatherDB.getAll()
-            binding.randMsg.text = "Carregamos: ${all.size}"
-        }
+    }
+
+    private fun loadDataFromDatabase() {
+        val allWeather = weatherDB.getAll()
+
+        binding.pastWeatherList.layoutManager = LinearLayoutManager(this)
+        binding.pastWeatherList.adapter = WeatherListAdapter(this, allWeather)
     }
 
     private fun loadStaticData() {
@@ -79,7 +88,6 @@ class WeatherDetailsActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<WeatherResponse>, t: Throwable) {
-                Logger.e("!" + t.toString())
                 binding.loadingText.text = getString(R.string.weather_details_loading_failed)
             }
         })

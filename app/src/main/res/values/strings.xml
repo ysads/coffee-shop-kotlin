@@ -17,6 +17,7 @@
     <string name="weather_details_loading">Carregando...</string>
     <string name="weather_details_loading_failed">Falha ao carregar dados. Tente novamente.</string>
     <string name="weather_details_feels_like">Sensação: </string>
+    <string name="weather_details_prev_records">Dados históricos</string>
     <string name="main_activity_title">Produtos</string>
     <string name="main_activity_hello">Olá, </string>
     <string name="notification_title">Coffee shop</string>

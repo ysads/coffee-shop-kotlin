@@ -1,6 +1,8 @@
 package br.usp.ime.coffee_shop_kotlin.domain
 
 import br.usp.ime.coffee_shop_kotlin.R
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.math.roundToInt
 
 class Weather(
@@ -18,6 +20,12 @@ class Weather(
 
     fun feelsLikeFormatted(): String {
         return if (feelsLike != null) "${feelsLike.roundToInt()}º"  else ""
+    }
+
+    fun dateFormatted(): String {
+        val formatter = SimpleDateFormat("dd/MM/yyyy")
+        val netDate = Date(timestamp.toLong() * 1000)
+        return formatter.format(netDate)
     }
 
     fun condition(): String {
