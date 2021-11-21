@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "922253551050",
+    "project_id": "sunlit-setup-332716",
+    "storage_bucket": "sunlit-setup-332716.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922253551050:android:547daf3dfc6450da34db33",
+        "android_client_info": {
+          "package_name": "br.usp.ime.coffee_shop_kotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922253551050-mj8f3tm93j9771fanjco83m4tegm51k0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1Nftr-4qyiioVN5ScYzwyt5UJvfL7w60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922253551050-mj8f3tm93j9771fanjco83m4tegm51k0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

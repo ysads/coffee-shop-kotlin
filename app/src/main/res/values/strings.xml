@@ -18,4 +18,6 @@
     <string name="weather_details_loading_failed">Falha ao carregar dados. Tente novamente.</string>
     <string name="weather_details_feels_like">Sensação: </string>
     <string name="main_activity_title">Produtos</string>
+    <string name="notification_title">Coffee shop</string>
+    <string name="notification_body">Entre na loja e veja os cafés!</string>
 </resources>
