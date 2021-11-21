@@ -2,12 +2,15 @@ package br.usp.ime.coffee_shop_kotlin.ui
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import br.usp.ime.coffee_shop_kotlin.R
+import br.usp.ime.coffee_shop_kotlin.data.weather.WeatherDTO
 import br.usp.ime.coffee_shop_kotlin.data.weather.WeatherResponse
 import br.usp.ime.coffee_shop_kotlin.data.weather.WeatherService
 import br.usp.ime.coffee_shop_kotlin.databinding.ActivityWeatherDetailsBinding
+import br.usp.ime.coffee_shop_kotlin.db.WeatherDatabase
 import br.usp.ime.coffee_shop_kotlin.domain.Weather
 import br.usp.ime.coffee_shop_kotlin.utils.Logger
 import retrofit2.Call
@@ -18,6 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class WeatherDetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWeatherDetailsBinding
+    private lateinit var weatherDB : WeatherDatabase
 
     private val region by lazy { intent.getStringExtra("region") }
     private val lat by lazy { intent.getStringExtra("lat") ?: "0" }
@@ -33,8 +37,17 @@ class WeatherDetailsActivity : AppCompatActivity() {
         binding = ActivityWeatherDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initDatabase()
         loadStaticData()
         fetchDataFromApi()
+    }
+
+    private fun initDatabase() {
+        weatherDB = WeatherDatabase(this)
+        binding.load.setOnClickListener {
+            val all = weatherDB.getAll()
+            binding.randMsg.text = "Carregamos: ${all.size}"
+        }
     }
 
     private fun loadStaticData() {
@@ -59,7 +72,9 @@ class WeatherDetailsActivity : AppCompatActivity() {
                 val data = response.body()
 
                 if (data != null) {
-                    loadDataToView(Weather(data))
+                    val weather = WeatherDTO(data).asWeather(region)
+                    loadDataToView(weather)
+                    weatherDB.insert(weather)
                 }
             }
 
@@ -74,8 +89,8 @@ class WeatherDetailsActivity : AppCompatActivity() {
         binding.loadingWrapper.visibility = View.GONE
         binding.weatherWrapper.visibility = View.VISIBLE
 
-        binding.temperature.text = weather.temperature()
-        binding.feelsLike.text = weather.feelsLike()
+        binding.temperature.text = weather.temperatureFormatted()
+        binding.feelsLike.text = weather.feelsLikeFormatted()
         binding.condition.text = weather.condition()
         binding.icon.setImageDrawable(AppCompatResources.getDrawable(this, weather.weatherIcon()))
     }

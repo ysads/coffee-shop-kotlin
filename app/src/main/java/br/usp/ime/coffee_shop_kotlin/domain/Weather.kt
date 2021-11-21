@@ -1,26 +1,31 @@
 package br.usp.ime.coffee_shop_kotlin.domain
 
 import br.usp.ime.coffee_shop_kotlin.R
-import br.usp.ime.coffee_shop_kotlin.data.weather.WeatherResponse
 import kotlin.math.roundToInt
 
-class Weather(var response: WeatherResponse) {
-    private val weather by lazy { response.current.weather[0] }
+class Weather(
+    val temperature: Float,
+    val timestamp: Int,
+    val region: String,
+    val feelsLike: Float? = null,
+    val description: String? = null,
+    val icon: String? = null
+) {
 
-    fun temperature(): String {
-        return "${response.current.temperature.roundToInt()}º"
+    fun temperatureFormatted(): String {
+        return "${temperature.roundToInt()}º"
     }
 
-    fun feelsLike(): String {
-        return "${response.current.feelsLike.roundToInt()}º"
+    fun feelsLikeFormatted(): String {
+        return if (feelsLike != null) "${feelsLike.roundToInt()}º"  else ""
     }
 
     fun condition(): String {
-        return weather.description.capitalize()
+        return description?.capitalize() ?: ""
     }
 
     fun weatherIcon(): Int {
-        return when(weather.icon) {
+        return when (icon) {
             "01d", "01n" -> R.drawable.ic__01
             "02d", "02n" -> R.drawable.ic__02
             "03d", "03n" -> R.drawable.ic__03
