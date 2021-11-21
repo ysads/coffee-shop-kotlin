@@ -70,7 +70,6 @@ class SignInActivity : AppCompatActivity() {
             intent.putExtra("email", googleEmail)
             intent.putExtra("picURL", googleProfilePicURL)
 
-            removeLoading()
             startActivity(intent)
 
         } catch (e: ApiException) {
