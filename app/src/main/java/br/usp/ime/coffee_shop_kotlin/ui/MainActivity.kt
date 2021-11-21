@@ -6,10 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
-import br.usp.ime.coffee_shop_kotlin.R
 import br.usp.ime.coffee_shop_kotlin.adapters.ProductListAdapter
+import br.usp.ime.coffee_shop_kotlin.data.products.ProductsService
 import br.usp.ime.coffee_shop_kotlin.databinding.ActivityMainBinding
-import br.usp.ime.coffee_shop_kotlin.domain.Product
 import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity() {
@@ -37,52 +36,7 @@ class MainActivity : AppCompatActivity() {
         Log.i("Last Name", lastName.toString())
         Log.i("Pic URL", picURL.toString())
 
-        val imageId = intArrayOf(
-            R.drawable.img01, R.drawable.img02, R.drawable.img03,
-            R.drawable.img04, R.drawable.img05, R.drawable.img06,
-            R.drawable.img07, R.drawable.img08, R.drawable.img09,
-            R.drawable.img10, R.drawable.img11, R.drawable.img12,
-            R.drawable.img13
-        )
-
-        val name = arrayOf(
-            "Coffee 01", "Coffee 02", "Coffee 03",
-            "Coffee 04", "Coffee 05", "Coffee 06",
-            "Coffee 07", "Coffee 08", "Coffee 09",
-            "Coffee 10", "Coffee 11", "Coffee 12",
-            "Coffee 13"
-        )
-
-        val description = arrayOf(
-            "Description 01", "Description 02", "Description 03",
-            "Description 04", "Description 05", "Description 06",
-            "Description 07", "Description 08", "Description 09",
-            "Description 10", "Description 11", "Description 12",
-            "Description 13"
-        )
-
-        val price = arrayOf(
-            "$10.01", "$10.02", "$10.03",
-            "$10.04", "$10.05", "$10.06",
-            "$10.07", "$10.08", "$10.09",
-            "$10.10", "$10.11", "$10.12",
-            "$10.13"
-        )
-
-        val productsArrayList = ArrayList<Product>()
-
-        for (i in name.indices) {
-            val product = Product(
-                imageId = imageId[i],
-                name = name[i],
-                description = description[i],
-                price = price[i],
-                region = "Extrema",
-                lat = "-22.845279715908166",
-                lon = "-46.26128202417066"
-            )
-            productsArrayList.add(product)
-        }
+        val productsArrayList = ProductsService().getAll()
 
         binding.listview.isClickable = true
         binding.listview.adapter = ProductListAdapter(this, productsArrayList)
