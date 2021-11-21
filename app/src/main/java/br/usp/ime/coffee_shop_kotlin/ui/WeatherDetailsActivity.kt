@@ -28,7 +28,7 @@ class WeatherDetailsActivity : AppCompatActivity() {
     private lateinit var weatherDB : WeatherDatabase
     private lateinit var adapter : WeatherListAdapter
 
-    private val region by lazy { intent.getStringExtra("region") }
+    private val region by lazy { intent.getStringExtra("region") ?: "" }
     private val lat by lazy { intent.getStringExtra("lat") ?: "0" }
     private val lon by lazy { intent.getStringExtra("lon") ?: "0" }
 
@@ -53,7 +53,7 @@ class WeatherDetailsActivity : AppCompatActivity() {
     }
 
     private fun loadDataFromDatabase() {
-        val allWeather = weatherDB.getAll()
+        val allWeather = weatherDB.getFromRegion(region)
 
         if (allWeather.size > 0) {
             binding.pastWeatherList.layoutManager = LinearLayoutManager(this)

@@ -51,10 +51,10 @@ class WeatherDatabase(var context: Context) : SQLiteOpenHelper(
         }
     }
 
-    fun getAll(): MutableList<Weather> {
+    fun getFromRegion(region: String): MutableList<Weather> {
         val list: MutableList<Weather> = ArrayList()
         val db = this.readableDatabase
-        val query = "SELECT * FROM $TABLENAME"
+        val query = "SELECT * FROM $TABLENAME WHERE region = \"$region\""
         val result = db.rawQuery(query, null)
 
         if (result.moveToFirst()) {
