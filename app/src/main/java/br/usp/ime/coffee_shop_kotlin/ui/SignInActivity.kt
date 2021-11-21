@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import br.usp.ime.coffee_shop_kotlin.databinding.ActivitySignInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -37,6 +38,8 @@ class SignInActivity : AppCompatActivity() {
 
     private fun signIn() {
         val signInIntent = mGoogleSignInClient.signInIntent
+
+        showLoading()
         startActivityForResult(
             signInIntent, requestCodeSignIn
         )
@@ -66,10 +69,23 @@ class SignInActivity : AppCompatActivity() {
             intent.putExtra("lastName", googleLastName)
             intent.putExtra("email", googleEmail)
             intent.putExtra("picURL", googleProfilePicURL)
+
+            removeLoading()
             startActivity(intent)
 
         } catch (e: ApiException) {
+            removeLoading()
             Log.e("Failure code:", e.statusCode.toString())
         }
+    }
+
+    private fun showLoading() {
+        binding.loadingWrapper.visibility = View.VISIBLE
+        binding.siginWrapper.visibility = View.GONE
+    }
+
+    private fun removeLoading() {
+        binding.loadingWrapper.visibility = View.GONE
+        binding.siginWrapper.visibility = View.VISIBLE
     }
 }

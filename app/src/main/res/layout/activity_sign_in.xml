@@ -6,32 +6,67 @@
     android:orientation="vertical"
     tools:context=".ui.SignInActivity">
 
-    <ImageView
+    <LinearLayout
+        android:id="@+id/loadingWrapper"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.6"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img10"/>
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/pink"
+        android:visibility="gone">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/signin_welcome"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:textColor="@color/navyBlue"
-        android:layout_marginTop="40dp"
-        android:layout_marginHorizontal="20dp"/>
+        <ProgressBar
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/darkPink" />
 
-    <Button
-        android:id="@+id/google_btn"
+        <TextView
+            android:id="@+id/loadingText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="@string/loading"
+            android:textAlignment="center"
+            android:textColor="@color/navyBlue"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/siginWrapper"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/google_logo"
-        android:padding="4dp"
-        android:text="@string/signin_action"
-        android:backgroundTint="@color/darkGreen"
-        android:layout_marginVertical="30dp"
-        android:layout_marginHorizontal="20dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img10" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/signin_welcome"
+            android:textColor="@color/navyBlue"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/google_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="30dp"
+            android:backgroundTint="@color/darkGreen"
+            android:drawableLeft="@drawable/google_logo"
+            android:padding="4dp"
+            android:text="@string/signin_action" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -10,13 +10,13 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
+    <string name="loading">Carregando...</string>
     <string name="signin_welcome">Olá, seja bem vindo</string>
     <string name="signin_action">Entrar com o Google</string>
     <string name="product_details_see_weather">Ver previsão do tempo</string>
     <string name="product_details_see_my_location">Ver localização</string>
     <string name="product_details_image_alt">Imagem do pacote de café</string>
     <string name="title_activity_maps">Localização</string>
-    <string name="weather_details_loading">Carregando...</string>
     <string name="weather_details_loading_failed">Falha ao carregar dados. Tente novamente.</string>
     <string name="weather_details_feels_like">Sensação: </string>
     <string name="weather_details_prev_records">Dados históricos</string>
