@@ -45,7 +45,7 @@ class ProductsService {
             val product = Product(
                 imageId = imageId[i],
                 name = randName(location["region"] ?: "n/a"),
-                description = description,
+                description = "$description\n$description",
                 price = asCurrency(Random.nextInt(1000, 4000)),
                 region = location["region"] ?: "n/a",
                 lat = location["lat"] ?: "0",
