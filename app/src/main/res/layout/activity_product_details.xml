@@ -37,9 +37,9 @@
         android:id="@+id/productDetailsSeeWeather"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/product_details_see_weather"
+        android:layout_marginTop="20dp"
         android:background="@color/design_default_color_on_primary"
-        android:layout_marginTop="20dp" />
+        android:text="@string/product_details_see_weather" />
 
     <Button
         android:id="@+id/productDetailsSeeMyLocation"

@@ -13,6 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"
+            android:paddingEnd="10dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -20,8 +21,9 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="20dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/img01" />
-            
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,24 +36,28 @@
                     android:layout_height="wrap_content"
                     android:text="Arábica Microlote - Wenceslau Braz"
                     android:textColor="@color/black"
-                    android:textSize="30dp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Descrição do produto."
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="Arábica Microlote - Wenceslau Braz"
                     android:textColor="@color/black"
-                    android:textSize="24dp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="$12.99"
-                    android:textColor="@color/black"
-                    android:textSize="24dp" />
+                    android:textColor="@color/darkGreen"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
